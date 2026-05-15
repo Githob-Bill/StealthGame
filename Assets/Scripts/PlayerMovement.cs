@@ -6,12 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float movespeed;
     private Vector3 mousepos;
-    private Camera cam;
 
-    private void Start()
-    {
-        cam = Camera.main;
-    }
     void Update()
     {
         //Shiftwalk/Sneak

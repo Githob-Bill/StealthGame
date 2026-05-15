@@ -8,6 +8,7 @@ public class CameraControl : MonoBehaviour
     public float panspeed = 0.1f;
     private Vector3 mousepos;
     private Camera mainCamera;
+    
  
     void Update()
     {
@@ -27,7 +28,7 @@ public class CameraControl : MonoBehaviour
         //Reset Panning Camera (WIP)
         if (Input.GetMouseButtonUp(2))
         {
-            transform.Translate(Vector3.zero, Space.Self);
+            transform.Translate(Vector3.zero, Space.World);
         }
 
     }

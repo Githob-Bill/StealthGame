@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Mouse
   - Guardpathfind
+  - Guard
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - GuardFOV
   - Water
   - UI
   - 

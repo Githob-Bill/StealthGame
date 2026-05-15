@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class CrosshairScript : MonoBehaviour
 {
-    [SerializeField] GameObject Crosshair;
+    private SpriteRenderer Crosshair;
     private Vector3 mousePos;
     private float mouseSpeed = 0.1f;
     private void Start()
     {
-        Crosshair.SetActive(false);
+       Crosshair = GetComponent<SpriteRenderer>();
+       Crosshair.enabled = false;
     }
 
     private void Update()
@@ -15,14 +16,14 @@ public class CrosshairScript : MonoBehaviour
         //Crosshair (WIP)  
         if (Input.GetMouseButton(1))
         {
-            Crosshair.SetActive(true);
+            Crosshair.enabled = true;
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = Vector2.Lerp(transform.position, mousePos, mouseSpeed);
         }
         
         if (Input.GetMouseButtonUp(1))
         {
-            Crosshair.SetActive(false);
+            Crosshair.enabled = false;
         }
     }
 
