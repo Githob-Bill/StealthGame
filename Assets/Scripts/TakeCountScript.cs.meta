@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d8f8c4aba216c354cbafe1ca0604c3cd
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - InteractBox: {instanceID: 0}
+  - Loot: {fileID: 8831132995822175016, guid: bead02894f03cf04b8209156e35eb20b, type: 3}
+  - TakeCountText: {instanceID: 0}
+  - InteractionText: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
