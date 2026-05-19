@@ -13,10 +13,14 @@ public class EscapeArea : MonoBehaviour
         EscapeTimer = 0;
         EscapeTimerActive = false;
     }
+
     private void OnTriggerEnter2D(Collider2D Player)
     {
         Debug.Log("Opening Window...");
         EscapeTimerActive = true;
+    }
+    private void OnTriggerStay2D(Collider2D Player)
+    {
         if (EscapeTimerActive == true)
         {
             EscapeTimer += Time.deltaTime;
@@ -25,7 +29,7 @@ public class EscapeArea : MonoBehaviour
                 EscapeTimerActive = false;
                 EscapeTimer = 0f;
                 //Load Win Screen
-                SceneManager.LoadScene(3);
+                SceneManager.LoadScene(1);
             }
         }
     }

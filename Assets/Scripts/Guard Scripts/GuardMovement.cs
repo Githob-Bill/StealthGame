@@ -17,7 +17,7 @@ public class GuardMovement : MonoBehaviour
     [SerializeField] DetectionCircles fov;
 
     //Guard Rotation Vars
-    [SerializeField] Vector3 velocity, prevPos;
+    [SerializeField] public Vector3 velocity, prevPos;
     public Vector2 Direction;
     
     Animator anim;

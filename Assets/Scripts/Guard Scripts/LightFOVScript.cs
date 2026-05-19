@@ -6,38 +6,34 @@ using static UnityEngine.GraphicsBuffer;
 
 public class LightFOVScript : MonoBehaviour
 {
-    Light2D GuardLightFOV;
-    Vector2 LightDirection;
+    public Light2D GuardLightFOV;
 
-    [SerializeField] DetectionCircles fov;
-    [SerializeField] Vector3 velocity, prevPos;
+    public GuardMovement GuardMovement;
+    public GuardMovement GuardVelocity;
 
-    public void Update()
+    [SerializeField] private DetectionCircles fov;
+
+    public Vector2 velocity;
+    public float guardspeed;
+    public float rotationSpeed = 5;
+
+    private void Awake()
     {
-        velocity = (transform.position - prevPos) / Time.deltaTime;
-        prevPos = transform.position;
-        LightDirection = velocity.normalized;
-
-        if (LightDirection.x > 0)
-        {
-            transform.Rotate(0, 0, 180);
-            fov.lookDir = Vector2.right;
-        }
-        else if (LightDirection.x < 0)
-        {
-            transform.Rotate(0, 0, 0);
-            fov.lookDir = Vector2.left; 
-        }
-
-        if (LightDirection.y > 0)
-        {
-            transform.Rotate(0, 0, -90);
-            fov.lookDir = Vector2.up;
-        }
-        else if (LightDirection.y < 0)
-        {
-            transform.Rotate(0, 0, 90);
-            fov.lookDir = Vector2.down;
-        }
+        guardspeed = GuardMovement.guardspeed;
+        velocity = GuardMovement.velocity;
+        fov = GetComponent<DetectionCircles>();
+    }
+    
+    void Update()
+    {
+        velocity = GuardMovement.velocity;
+        Vector2 movement = velocity.normalized;
+         if (movement != Vector2.zero)
+         {
+             float targetAngle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg - 90f;
+             float currentAngle = transform.rotation.eulerAngles.z;
+             float newAngle = Mathf.LerpAngle(currentAngle, targetAngle, rotationSpeed * Time.deltaTime);
+             transform.rotation = Quaternion.Euler(0, 0, newAngle);
+         }
     }
 }

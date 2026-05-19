@@ -8,6 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_Skyscraper.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Win_Screen.unity
+    guid: 43d1edc7cf663ff40972ceddcc031615
+  - enabled: 1
+    path: Assets/Scenes/Lose_Screen.unity
+    guid: 3ddc72dc84b06a944be51b21ffccc1fd
+  - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: 7121d538b2625a64fa63c7a65e96ff8d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
