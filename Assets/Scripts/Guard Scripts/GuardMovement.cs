@@ -12,16 +12,16 @@ public class GuardMovement : MonoBehaviour
     public float idleTime;
     public int currentPointIndex;
     bool once;
-    
+
     //Guard FOV Vars
     [SerializeField] DetectionCircles fov;
 
     //Guard Rotation Vars
-    [SerializeField] Vector3 velocity, prevPos;
+    [SerializeField] public Vector3 velocity, prevPos;
     public Vector2 Direction;
-    
+
     Animator anim;
-    
+
     //Guard FOV link w/ movement
     private void Awake()
     {
