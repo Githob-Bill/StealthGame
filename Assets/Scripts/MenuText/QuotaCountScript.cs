@@ -6,7 +6,7 @@ public class QuotaCountScript : MonoBehaviour
     [SerializeField] private TextMeshProUGUI quotaText;
     
     public int totalCash = 0;
-    public int QuotaCountMax = 80000;
+    public int QuotaCountMax = 140000;
     public static QuotaCountScript quotaInstance;
 
     public GameObject EscapeZone;
@@ -14,7 +14,7 @@ public class QuotaCountScript : MonoBehaviour
     private void Awake()
     {
         quotaInstance = this;
-        quotaText.text = "Quota Needed: $80000";
+        quotaText.text = "Quota Needed: $140000";
     }
 
     public void QuotaCheck(int Cash)

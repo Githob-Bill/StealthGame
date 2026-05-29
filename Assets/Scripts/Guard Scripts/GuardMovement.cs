@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -9,8 +10,10 @@ public class GuardMovement : MonoBehaviour
     //Guard Movement Vars
     public float guardspeed;
     public Transform[] patrolPoints;
+    public Transform[] SearchPoints;
     public float idleTime;
     public int currentPointIndex;
+    public static GuardMovement moveInstance;
     bool once;
 
     //Guard FOV Vars
@@ -21,10 +24,12 @@ public class GuardMovement : MonoBehaviour
     public Vector2 Direction;
 
     Animator anim;
+    GameObject SearchPoint;
 
     //Guard FOV link w/ movement
     private void Awake()
     {
+        moveInstance = this;
         fov = GetComponent<DetectionCircles>();
     }
 
@@ -65,6 +70,14 @@ public class GuardMovement : MonoBehaviour
             //anim.SetFloat("Vertical", Direction.y);
         }
         //anim.SetBool("Idle", idle);
+
+    }
+
+    //Search Mode (If a guard detects your sound, but not you)
+    public void SearchMode()
+    {
+        //Instantiate.SearchPoint
+        //Vector2.MoveTowards(SearchPoints); // Chase state
     }
 
     //Idle Time after reaching each point

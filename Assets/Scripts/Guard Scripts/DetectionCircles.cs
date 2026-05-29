@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.Hierarchy;
 using Unity.VisualScripting;
 using UnityEditor.Build.Content;
@@ -11,6 +12,16 @@ public class DetectionCircles : MonoBehaviour
     public Transform rayPoint;
 
     [SerializeField] Transform target;
+
+    public GuardMovement GuardMovement;
+    public GuardMovement GuardVelocity;
+
+    [SerializeField] private DetectionCircles fov;
+    public Vector2 velocity;
+    public float guardspeed;
+    public float rotationSpeed = 35;
+
+    public bool Detecting;
 
 
     private void Awake()
@@ -31,6 +42,7 @@ public class DetectionCircles : MonoBehaviour
         {
             if (!detect.collider.CompareTag("Player"))
             {
+                GameObject currentHit = detect.collider.gameObject;
                 Debug.DrawRay(rayPoint.position, targetDir, Color.green);
                 Detection_Meter.instance.LowerDetectionRate();
             }
@@ -42,5 +54,9 @@ public class DetectionCircles : MonoBehaviour
         }
     }
 
-
+    private void Update()
+    {
+        velocity = GuardMovement.velocity;
+        Vector2 movement = velocity.normalized;
+    }
 }

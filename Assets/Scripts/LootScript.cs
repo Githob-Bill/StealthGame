@@ -27,8 +27,6 @@ public class LootScript : MonoBehaviour
     private bool Looted;
     public bool InRange;
     public GameObject Loot;
-
-    public TextMeshProUGUI InteractionText;
     //private string InteractText = "[F] to Steal";
 
     public void Start()
@@ -46,6 +44,9 @@ public class LootScript : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D Player)
     {
+
+        InteractionText.interactInstance.InteractionRangeCheck();
+        
         //InteractText
         InRange = true;
         if (InRange == true)
@@ -59,14 +60,20 @@ public class LootScript : MonoBehaviour
             }
             if (Input.GetKey(KeyCode.E))
             {
+                InteractionText.interactInstance.InteractionRangeCheckLooting();
                 InteractTimeActive = true;
+            }
+            else
+            {
+                InteractTimeActive = false;
+                InteractTimer = 0;
             }
         }
     }
     private void OnTriggerExit2D(Collider2D Player)
     {
         Debug.Log("Out of Range!");
-        //InteractionText.gameObject.SetActive(false);
+        InteractionText.interactInstance.InteractionRangeCheckFail();
         InteractTimeActive = false;
         InteractTimer = 0;
     }
@@ -91,6 +98,7 @@ public class LootScript : MonoBehaviour
                 if (Looted == true)
                 {
                     Debug.Log("Finished Looting");
+                    InteractionText.interactInstance.InteractionRangeCheckFail();
                     Destroy(this);
                 }
             }
