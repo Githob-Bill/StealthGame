@@ -7,6 +7,7 @@ TagManager:
   - Mouse
   - Guardpathfind
   - Guard
+  - Pointer
   layers:
   - Default
   - TransparentFX

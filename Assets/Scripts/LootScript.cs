@@ -27,6 +27,9 @@ public class LootScript : MonoBehaviour
     private bool Looted;
     public bool InRange;
     public GameObject Loot;
+
+    private SpriteRenderer SpriteRenderer;
+    public Sprite EmptyCase;
     //private string InteractText = "[F] to Steal";
 
     public void Start()
@@ -35,6 +38,8 @@ public class LootScript : MonoBehaviour
         InteractTime = 3f;
         InteractTimer = 0f;
         InteractTimeActive = false;
+
+        SpriteRenderer = GetComponentInParent<SpriteRenderer>();
     }
 
     //Keybinds for Trigger
@@ -92,7 +97,8 @@ public class LootScript : MonoBehaviour
                 TakeCountScript.instance.CollectCash(Cash);
                 QuotaCountScript.quotaInstance.QuotaCheck(Cash);
 
-                Loot.GetComponent<Renderer>().material.color = Color.gray;
+                Empty();
+
                 Looted = true;
 
                 if (Looted == true)
@@ -103,5 +109,10 @@ public class LootScript : MonoBehaviour
                 }
             }
         }
+    }
+
+    void Empty()
+    {
+        SpriteRenderer.sprite = EmptyCase;
     }
 }

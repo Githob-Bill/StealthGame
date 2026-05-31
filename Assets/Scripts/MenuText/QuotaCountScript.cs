@@ -24,6 +24,9 @@ public class QuotaCountScript : MonoBehaviour
         {
             EscapeZone.SetActive(true);
             quotaText.text = "Escape now or Loot more!";
+
+            GameObject EscapePointer = GameObject.Find("Pointer");
+            EscapePointer.GetComponent<SpriteRenderer>().enabled = true;
         }
     }
 }
