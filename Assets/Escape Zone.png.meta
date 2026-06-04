@@ -209,7 +209,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Escape Zone_0: 7283496123336379779
+      Escape Zone_1: 6551990863764587099
+      Escape Zone_2: 5847555887879932584
+      Escape Zone_3: -853832590092255663
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
