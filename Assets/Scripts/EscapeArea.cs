@@ -29,7 +29,7 @@ public class EscapeArea : MonoBehaviour
                 EscapeTimerActive = false;
                 EscapeTimer = 0f;
                 //Load Win Screen
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(0);
             }
         }
     }
