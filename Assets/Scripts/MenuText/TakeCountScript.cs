@@ -9,7 +9,6 @@ public class TakeCountScript : MonoBehaviour
     private LootScript Loot;
     public int totalCash = 0;
     public static TakeCountScript instance;
-
     private void Awake()
     {
         instance = this;

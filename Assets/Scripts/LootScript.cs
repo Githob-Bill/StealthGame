@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
+using TMPro;
 using Unity.Hierarchy;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEditor.Rendering.Universal;
 using UnityEngine;
-using TMPro;
+using UnityEngine.Audio;
 using UnityEngine.UI;
-using Unity.VisualScripting.Antlr3.Runtime;
 
 public class LootScript : MonoBehaviour
 {
@@ -30,12 +31,13 @@ public class LootScript : MonoBehaviour
 
     private SpriteRenderer SpriteRenderer;
     public Sprite EmptyCase;
+    
     //private string InteractText = "[F] to Steal";
 
     public void Start()
     {
         Looted = false;
-        InteractTime = 3f;
+        InteractTime = 6f;
         InteractTimer = 0f;
         InteractTimeActive = false;
 
@@ -81,19 +83,22 @@ public class LootScript : MonoBehaviour
         InteractionText.interactInstance.InteractionRangeCheckFail();
         InteractTimeActive = false;
         InteractTimer = 0;
+        
     }
 
     private void Update()
-    {   
+    {
+
         //Interaction Timer
         if (InteractTimeActive == true)
         {
+
             InteractTimer += Time.deltaTime;
             if (InteractTimer > InteractTime)
             {
                 InteractTimeActive = false;
                 InteractTimer = 0f;
-                
+
                 TakeCountScript.instance.CollectCash(Cash);
                 QuotaCountScript.quotaInstance.QuotaCheck(Cash);
 
@@ -115,4 +120,5 @@ public class LootScript : MonoBehaviour
     {
         SpriteRenderer.sprite = EmptyCase;
     }
+
 }
